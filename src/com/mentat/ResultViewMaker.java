@@ -3,28 +3,30 @@ package com.mentat;
 import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.List;
+import java.util.Locale;
 
 public class ResultViewMaker {
 	
 	public String makeResultWithPeriod(double result){
+
 		String integ = "" + (int)result;
-		Formatter formatter = new Formatter();
 		String tail = getTail(result);
-		formatter.format("%.10f", tail);
-		System.out.println(formatter);
-		//String digits = figureoutDigitsInPeriod(tail);
-		//return integ + "." + makeTailViewWithPeriod(tail, digits);
-		return null;
+		String digits = figureoutDigitsInPeriod(tail);
+		return integ + "." + makeTailViewWithPeriod(tail, digits);
+		
 	}
 	
 	
 	public String getTail(double result){
-		String tail = "" + result;
+		Formatter formatter = new Formatter();
+		formatter.format("%.12f", result);
+		String tail = "" + formatter.toString();
 		String integ = "" + (int)result;
 		tail = tail.substring(integ.length()+1);
-		if (tail.length() > 10) {
-			tail = tail.substring(0, 10);
+		if (tail.length() > 12) {
+			tail = tail.substring(0, 12);
 		}
+		formatter.close();
 		return tail;
 	}
 	
@@ -98,11 +100,6 @@ public class ResultViewMaker {
 		}
 		}
 		return resultAsString;
-	}
-	
-	public static void main(String[] args) {
-		ResultViewMaker ddm = new ResultViewMaker();
-		System.out.println(ddm.makeResultWithPeriod(15.53212532123));
 	}
 
 }
