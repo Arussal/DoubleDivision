@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @version
  * @author Ruslan Askerov
  */
-public class GraphicDividePrinter {
+public class GraphicBuilder {
 
 	private ResultViewMaker resultViewer;
 
@@ -25,7 +25,7 @@ public class GraphicDividePrinter {
 
 	private List<String> output;
 
-	public GraphicDividePrinter(int dividend, int divider) {
+	public GraphicBuilder(int dividend, int divider) {
 
 		this.dividend = dividend;
 		this.divider = divider;
@@ -193,11 +193,5 @@ public class GraphicDividePrinter {
 				+ printMargins(
 						dividendAsString.length()
 								- subDividendAsString.length(), " ") + "|" + getResult());
-	}
-
-	public static void main(String[] args) {
-
-		GraphicDividePrinter dr = new GraphicDividePrinter(20, 6);
-		System.out.println(dr.makeOutput());
 	}
 }
