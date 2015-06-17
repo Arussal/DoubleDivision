@@ -3,8 +3,14 @@ package com.mentat;
 import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.List;
-import java.util.Locale;
 
+/**
+ * 
+ * Creates result with period if it is
+ * 
+ * @version 1.0
+ * @author Ruslan Askerov
+ */
 public class ResultViewMaker {
 	
 	public String makeResultWithPeriod(double result){
@@ -45,7 +51,7 @@ public class ResultViewMaker {
 		int limit = mass.length/2;
 		
 		boolean match = false;
-		outer: for (int i = 0; i < limit; limit--){
+		for (int i = 0; i < limit; limit--){
 			reversedPeriod = "";
 			for (int j = 0; j < limit; j++){
 				if(mass[mass.length-1-j] != mass[mass.length-1-limit-j]){

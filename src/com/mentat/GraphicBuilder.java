@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 /**
  * 
- * Makes dividing in column form
+ * Makes graphic form of dividing
  * 
- * @version
+ *  @version 1.0
  * @author Ruslan Askerov
  */
 public class GraphicBuilder {
@@ -152,6 +152,9 @@ public class GraphicBuilder {
 	// select the least number from previous dividend
 	// which is able been divided to divider
 	public int getSubDividend(int dividend) {
+		while(dividend < divider){
+			dividend *= 10;
+		}
 		int subDividend = 0;
 		String dividendAsString = "" + dividend;
 		String lastNumberAsString = "" + divider;
